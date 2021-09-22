@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>World Covid Tracker</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+</head>
+
+<body class="p-3 mb-2 bg-dark text-white">
+<div class="container">
+    <h1 class="display-1">World Covid Tracker</h1>
+    <p class="lead text-muted">"Covid hasn't ended yet!"</p>
+    <p>This application will help you keep track of all reported Covid cases from around the world.  </p>
+
+    <div class="jumbotron w-50 p-3 mb-2 bg-success">
+        <h1  th:text="${totalReportedCases}"></h1>
+        <h4 class="font-weight-bold">Total Reported Cases</h4>
+
+    </div>
+    <br>
+    <table class="table table-dark table-striped">
+    <tr class="table-light">
+        <th>STATE</th>
+        <th>COUNTRY</th>
+        <th>CASES TODAY &nbsp <span class="badge bg-success">Updated Daily</span></th>
+        <th>TOTAL CASES &nbsp <span class="badge bg-success">Updated Daily</span></th>
+    </tr>
+    <tr th:each="location_new : ${location}">
+        <td th:text="${location_new.states}"></td>
+        <td th:text="${location_new.country}"></td>
+        <td th:text="${location_new.newCases}">0</td>
+        <td th:text="${location_new.totalCases}">0</td>
+    </tr>
+</table>
+</div>
+</body>
+
+</html>
